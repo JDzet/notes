@@ -50,8 +50,9 @@ public class NotesTakerActivity extends AppCompatActivity {
                 Intent intent = new Intent();
                 intent.putExtra("notes", notes);
                 setResult(Activity.RESULT_OK, intent);
-
                 finish();
+
+
             }
         });
 
