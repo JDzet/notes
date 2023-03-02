@@ -20,6 +20,8 @@ public class NotesTakerActivity extends AppCompatActivity {
     ImageView imageViewSave;
     Notes notes;
 
+    boolean isOldNote = false;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,6 +30,19 @@ public class NotesTakerActivity extends AppCompatActivity {
         editText_title = findViewById(R.id.editText_title);
         editText_notes = findViewById(R.id.editText_notes);
         imageViewSave = findViewById(R.id.imageViewSave);
+
+        notes = new Notes();
+        try {
+            notes = (Notes) getIntent().getSerializableExtra("old_note");
+            editText_title.setText(notes.getTitle());
+            editText_notes.setText(notes.getNotes());
+            isOldNote = true;
+        }
+        catch(Exception e){
+            e.printStackTrace();
+        }
+
+
 
         imageViewSave.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -42,7 +57,12 @@ public class NotesTakerActivity extends AppCompatActivity {
                 SimpleDateFormat formatter = new SimpleDateFormat("d MMM yyyy");
                 Date date = new Date();
 
-                notes = new Notes();
+
+
+                if(!isOldNote){
+                    notes = new Notes();
+                }
+
                 notes.setTitle(title);
                 notes.setNotes(desc);
                 notes.setDate(formatter.format(date));

@@ -27,4 +27,7 @@ public interface Request {
 
     @Delete ()
     void delete(Notes notes);
+
+    @Query("UPDATE notes Set pinned = :pin Where ID = :id")
+    void pin(int id, boolean pin);
 }
