@@ -54,7 +54,7 @@ public class ListAdapter extends RecyclerView.Adapter<NotesViewHolder> {
             holder.ImagePin.setImageResource(0);
         }
 
-        holder.notes_conteiner.setCardBackgroundColor(holder.itemView.getResources().getColor(R.color.grey,null));
+        holder.notes_conteiner.setCardBackgroundColor(holder.itemView.getResources().getColor(R.color.green,null));
 
         holder.notes_conteiner.setOnClickListener(new View.OnClickListener() {
             @Override

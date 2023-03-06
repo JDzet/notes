@@ -10,6 +10,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
@@ -24,6 +26,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity implements PopupMenu.OnMenuItemClickListener {
+
+    AlertDialog.Builder builder;
 
     RecyclerView recyclerView;
     FloatingActionButton but_add;
@@ -149,6 +153,7 @@ public class MainActivity extends AppCompatActivity implements PopupMenu.OnMenuI
 
     @Override
     public boolean onMenuItemClick(MenuItem item) {
+        builder = new AlertDialog.Builder(this);
         switch (item.getItemId()){
             case R.id.pin:
               if(selectedNote.isPinned()){
@@ -164,11 +169,28 @@ public class MainActivity extends AppCompatActivity implements PopupMenu.OnMenuI
               return true;
 
             case  R.id.delete:
-                database.request().delete(selectedNote);
-                notes.remove(selectedNote);
-                listAdapter.notifyDataSetChanged();
-                Toast.makeText(MainActivity.this, "Заметка удалена", Toast.LENGTH_SHORT).show();
+               builder.setTitle("Удаление заметки").setMessage("Вы действительно хотите удалить запись ?")
+                               .setCancelable(true)
+                                       .setPositiveButton("Да", new DialogInterface.OnClickListener() {
+                                           @Override
+                                           public void onClick(DialogInterface dialog, int which) {
+                                               database.request().delete(selectedNote);
+                                               notes.remove(selectedNote);
+                                               listAdapter.notifyDataSetChanged();
+                                               Toast.makeText(MainActivity.this, "Заметка удалена", Toast.LENGTH_SHORT).show();
+
+                                           }
+                                       })
+                       .setNegativeButton("Нет", new DialogInterface.OnClickListener() {
+                           @Override
+                           public void onClick(DialogInterface dialog, int which) {
+                               dialog.cancel();
+                           }
+                       })
+                       .show();
                 return true;
+
+
 
             default:
                 return false;

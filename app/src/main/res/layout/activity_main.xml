@@ -7,6 +7,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".MainActivity"
+    android:background="@color/bre"
     >
 
     <androidx.appcompat.widget.SearchView
@@ -15,11 +16,11 @@
         android:layout_width="match_parent"
         android:layout_height="?android:attr/actionBarSize"
         android:layout_alignParentTop="true"
-        android:layout_marginStart="5dp"
+        android:layout_marginStart="15dp"
         android:layout_marginTop="5dp"
-        android:layout_marginEnd="5dp"
+        android:layout_marginEnd="15dp"
         android:layout_marginBottom="16dp"
-        android:background="@color/grey"
+        android:background="@color/main"
 
         app:iconifiedByDefault="false"/>
 
@@ -38,6 +39,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
+        app:rippleColor="@color/grey"
         android:layout_marginStart="26dp"
         android:layout_marginTop="26dp"
         android:layout_marginEnd="26dp"

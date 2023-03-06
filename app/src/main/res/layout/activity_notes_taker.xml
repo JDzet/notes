@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/grey"
+    android:background="@color/green"
     android:orientation="vertical"
     tools:context=".NotesTakerActivity">
 
@@ -39,13 +39,14 @@
         android:textStyle="bold"
         android:textSize="20sp"
         android:singleLine="true"
-        android:background="@null"
+
         />
     <EditText
         android:id="@+id/editText_notes"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Введите текст:"
+        android:layout_marginTop="25dp"
         android:padding="10dp"
         android:textStyle="normal"
         android:textSize="17sp"
