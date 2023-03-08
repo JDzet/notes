@@ -12,7 +12,7 @@ import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.notes.NoteClickLIst;
-import com.example.notes.Notes;
+import com.example.notes.Model.Notes;
 import com.example.notes.R;
 
 import java.util.List;

@@ -20,6 +20,7 @@ import android.widget.Toast;
 
 import com.example.notes.Adapter.ListAdapter;
 import com.example.notes.DataBase.RoomDB;
+import com.example.notes.Model.Notes;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.ArrayList;
@@ -122,9 +123,6 @@ public class MainActivity extends AppCompatActivity implements PopupMenu.OnMenuI
 
         recyclerView.setAdapter(listAdapter);
 
-
-
-
     }
 
     private final NoteClickLIst noteClickLIst = new NoteClickLIst() {
@@ -189,9 +187,6 @@ public class MainActivity extends AppCompatActivity implements PopupMenu.OnMenuI
                        })
                        .show();
                 return true;
-
-
-
             default:
                 return false;
         }

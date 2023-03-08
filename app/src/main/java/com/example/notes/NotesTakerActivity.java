@@ -10,6 +10,8 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.example.notes.Model.Notes;
+
 import java.text.SimpleDateFormat;
 import java.util.Date;
 

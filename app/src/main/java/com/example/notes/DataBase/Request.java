@@ -9,7 +9,7 @@ import androidx.room.Delete;
 import androidx.room.Insert;
 import androidx.room.Query;
 
-import com.example.notes.Notes;
+import com.example.notes.Model.Notes;
 
 import java.util.List;
 
